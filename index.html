@@ -4,50 +4,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> الدرر الشيعية</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>الدرر الشيعية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body {
-            font-family: 'Cairo', sans-serif;
+        :root {
+            --primary-color: #1a2a33;
+            --secondary-color: #2c3e50;
+            --accent-color: #C7CBCD;
+            --text-color: #fff;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, #1a2a33, #2c3e50);
-            color: #fff;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-color);
             line-height: 1.6;
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
         .container {
-            position: relative;
-            width: 100%;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: auto;
             padding: 20px;
+            position: relative;
+        }
+
+        /* Header Styles */
+        .header {
             text-align: center;
+            padding: 40px 0;
+            position: relative;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
         }
 
         h1 {
-            font-size: 3rem;
-            margin-top: 50px;
-            color: #fff;
-            font-weight: bold;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            font-size: 3.5rem;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             animation: slideIn 1s ease-out;
         }
 
-        p.site-description {
-            font-size: 1.2rem;
-            color: #dcdcdc;
-            margin-top: 20px;
-            animation: fadeIn 1s ease-out;
+        .site-description {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 20px auto;
+            color: var(--accent-color);
+            animation: fadeIn 1.5s ease-out;
         }
 
+        /* Navigation Bar */
+        .nav-bar {
+            background: rgba(26, 42, 51, 0.9);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        /* Enhanced Search Bar */
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-input {
+            padding: 12px 20px;
+            font-size: 1rem;
+            border-radius: 25px;
+            border: 2px solid var(--accent-color);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            width: 300px;
+            transition: all var(--transition-speed) ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 10px rgba(199, 203, 205, 0.3);
+        }
+
+        .search-button {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all var(--transition-speed) ease;
+        }
+
+        .search-button:hover {
+            background: var(--primary-color);
+            color: var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        /* Enhanced Button Container */
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+            padding: 20px;
+        }
+
+        .custom-button {
+            background: var(--accent-color);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            color: var(--primary-color);
+            font-weight: bold;
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-button i {
+            font-size: 1.2rem;
+        }
+
+        .custom-button:hover {
+            background: var(--primary-color);
+            color: var(--accent-color);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Enhanced Content Section */
+        .content {
+            display: none;
+            background: rgba(36, 50, 60, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 40px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .content h2 {
+            color: var(--accent-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        /* Enhanced Hadith Cards */
+        .hadith {
+            background: rgba(199, 203, 205, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            transition: all var(--transition-speed) ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hadith:hover {
+            transform: translateY(-5px);
+            background: rgba(199, 203, 205, 0.2);
+            border-color: var(--accent-color);
+        }
+
+        .hadith p {
+            font-size: 1.1rem;
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        .hadith strong {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .hadith::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* Enhanced Back Button */
+        .button-back {
+            display: inline-block;
+            padding: 15px 30px;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 25px;
+            margin-top: 30px;
+            font-weight: bold;
+            transition: all var(--transition-speed) ease;
+            text-align: center;
+        }
+
+        .button-back:hover {
+            background: var(--primary-color);
+            color: var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        /* Animations */
         @keyframes slideIn {
             from {
                 opacity: 0;
                 transform: translateY(-50px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -58,302 +261,358 @@
             from {
                 opacity: 0;
             }
-
             to {
                 opacity: 1;
             }
         }
 
-        /* زر البحث */
-        .search-container {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            align-items: center;
-            transition: all 0.3s ease;
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
-        .search-input {
-            padding: 10px;
-            font-size: 1rem;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            width: 200px;
-            display: none;
-        }
-
-        .search-button {
-            background-color: #19232A;
-            color: #fff;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-left: 10px;
-        }
-
-        .search-button:hover {
-            background-color: #C7CBCD;
-            color: #19232A;
-        }
-
-        .search-toggle {
-            background-color: #19232A;
-            color: #fff;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .search-toggle:hover {
-            background-color: #C7CBCD;
-            color: #19232A;
-        }
-
-        .button-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 50px;
-        }
-
-        .custom-button {
-            background-color: #C7CBCD;
-            padding: 15px 30px;
-            margin: 15px;
-            border-radius: 18px;
-            text-decoration: none;
-            color: #19232A;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-align: center;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            width: 200px;
-            box-sizing: border-box;
-            cursor: pointer;
-        }
-
-        .custom-button:hover {
-            background-color: #19232A;
-            color: #fff;
-            transform: scale(1.05);
-        }
-
-        .custom-button:active {
-            background-color: #3e4e59;
-        }
-
-        .content {
-            display: none;
-            margin-top: 50px;
-            padding: 20px;
-            background-color: #24323C;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: right;
-            direction: rtl;
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        .hadith {
-            margin: 20px;
-            padding: 20px;
-            background-color: #C7CBCD;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            font-size: 1.2rem;
-            line-height: 1.8;
-            text-align: right;
-            direction: rtl;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        .hadith:hover {
-            transform: translateY(-10px);
-            background-color: #19232A;
-            color: #fff;
-        }
-
-        .hadith p {
-            margin: 10px 0;
-            font-size: 1.1rem;
-            color: #19232A;
-        }
-
-        .hadith strong {
-            font-size: 1.2rem;
-            color: #000;
-        }
-
-        .button-back {
-            display: block;
-            text-align: center;
-            margin-top: 30px;
-            padding: 15px 30px;
-            background-color: #C7CBCD;
-            border-radius: 18px;
-            color: #19232A;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .button-back:hover {
-            background-color: #19232A;
-            color: #fff;
-            transform: scale(1.05);
-        }
-
-        @media screen and (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
+        /* Responsive Design */
+        @media screen and (max-width: 1024px) {
+            .container {
+                padding: 15px;
             }
 
-            .custom-button {
-                width: 100%;
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            .site-description {
                 font-size: 1.1rem;
             }
 
-            .hadith p {
-                font-size: 1rem;
-            }
-
-            .container {
-                padding: 10px;
+            .search-input {
+                width: 250px;
             }
         }
 
-        @media screen and (max-width: 480px) {
-            h1 {
-                font-size: 1.5rem;
+        @media screen and (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
             }
 
-            .hadith p {
-                font-size: 0.9rem;
-            }
-
-            .custom-button {
-                font-size: 1rem;
-                padding: 10px;
+            .search-container {
                 width: 100%;
             }
 
-            .container {
-                padding: 5px;
+            .search-input {
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .button-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hadith {
+                padding: 20px;
+            }
+
+            .hadith p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Dark Mode Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--accent-color);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: all var(--transition-speed) ease;
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(180deg);
+            background: var(--primary-color);
+            color: var(--accent-color);
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+        }
+
+        .loading::after {
+            content: '';
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--accent-color);
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spinner 1s linear infinite;
+        }
+
+        @keyframes spinner {
+            to {
+                transform: rotate(360deg);
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1> الدرر الشيعية</h1>
-        <p class="site-description">أكبر موسوعة لأحاديث وروايات رسول الله واهل بيته (عليهم صلوات الله) ، للتعرف على الحديث الصحيح والضعيف والمكذوب من خلال أحكام العلماء عليها ، ويشرف عليه الأخ محمد الحجازي.</p>
+    <div class="nav-bar">
+        <div class="nav-container">
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="ابحث في الأحاديث..." oninput="searchHadith()">
+                <button class="search-button" onclick="searchHadith()">
+                    <i class="fas fa-search"></i> بحث
+                </button>
+            </div>
+        </div>
+    </div>
 
-        <!-- زر البحث toggle -->
-        <div class="search-container">
-            <button class="search-toggle" onclick="toggleSearch()">بحث</button>
-            <input type="text" id="searchInput" class="search-input" placeholder=" ...ابحث عن حديث" oninput="searchHadith()">
+    <div class="container">
+        <div class="header">
+            <img src="/api/placeholder/120/120" alt="شعار الدرر الشيعية" class="logo">
+            <h1>الدرر الشيعية</h1>
+            <p class="site-description">أكبر موسوعة لأحاديث وروايات رسول الله واهل بيته (عليهم صلوات الله) ، للتعرف على الحديث الصحيح والضعيف والمكذوب من خلال أحكام العلماء عليها ، ويشرف عليه الأخ محمد الحجازي.</p>
         </div>
 
         <div class="button-container">
-            <button class="custom-button" onclick="showContent('sahihContent')">الأحاديث الصحيحة</button>
-            <button class="custom-button" onclick="showContent('daifContent')">الأحاديث الضعيفة</button>
-            <button class="custom-button" onclick="showContent('hijmContent')">الهجوم</button>
-            <button class="custom-button" onclick="showContent('refutationContent')">رد الشبهات</button>
-            <button class="custom-button" onclick="showContent('quranInterpretationsContent')">تفاسير القرآن الكريم</button>
-            <button class="custom-button" onclick="showContent('foundersWorksContent')">مؤلفات مؤسسي الموقع</button>
+            <button class="custom-button" onclick="showContent('sahihContent')">
+                <i class="fas fa-check-circle"></i>
+                الأحاديث الصحيحة
+            </button>
+            <button class="custom-button" onclick="showContent('daifContent')">
+                <i class="fas fa-exclamation-circle"></i>
+                الأحاديث الضعيفة
+            </button>
+            <button class="custom-button" onclick="showContent('hijmContent')">
+                <i class="fas fa-shield-alt"></i>
+                الهجوم
+            </button>
+            <button class="custom-button" onclick="showContent('refutationContent')">
+                <i class="fas fa-gavel"></i>
+                رد الشبهات
+            </button>
+            <button class="custom-button" onclick="showContent('quranInterpretationsContent')">
+                <i class="fas fa-book-open"></i>
+                تفاسير القرآن الكريم
+            </button>
+            <button class="custom-button" onclick="showContent('foundersWorksContent')">
+                <i class="fas fa-pen-fancy"></i>
+                مؤلفات مؤسسي الموقع
+            </button>
         </div>
 
         <div id="sahihContent" class="content">
             <h2>الأحاديث الصحيحة</h2>
+
             <div class="hadith">
                 <p><strong>الحديث 1:</strong> 
                     عن الرضا (عليه السلام) : 
-                    «صَدِيقُ كُلِّ إمرئ عَقْلُهُ وعَدُوُّهُ جَهْلُهُ».
+                    «صَدِيقُ كُلِّ إمرئ عَقْلُهُ وعَدُوُّهُ جَهْلُهُ».
                 </p>
                 <p><strong>المصدر:</strong> الكافي الشريف | الجزء : الأول | الصفحة : 11 الراوي : الحسن بن الجهم | صحة الحديث : موثق ولا يقصر عن الصحيح.</p>
             </div>
+
+
+            
             <div class="hadith">
-                <p><strong>الحديث 2:</strong>
-                    عن أبي عبد الله (عليه السلام) : قَالَ رَسُول الله (صَلَّى الله عَلَيْهِ وَآلِهِ وسَلَّم) : إِنَّ الله (عَزَّ وَجَل) يَقُول : «تَذَاكِرُ الْعِلْمِ بَيْنَ عِبَادِي مِمَّا تُحْيَى عَلَيْهِ القُلُوبُ المَيِّتَةُ إِذَا هُمْ انْتَهَوا فِيهِ إِلَى أَمْرِي».
+                <p><strong>الحديث 2:</strong> 
+                    قُلْتُ لِأَبِي الحَسَنِ (عَلَيْهِ السَّلاَم) إِنَّ عِنْدَنَا قَوْمًا لَهُمْ مَحَبَّةٌ ولَيْسَتْ لَهُمْ تِلْكَ العزيمة يَقُولُون بِهَذَا القول ، فَقَالَ «ليسَ أُولَئِكَ مِمَنْ عَاتَبَ الله إِنَّمَا قَالَ الله ﴿فَاعْتَبِرُوا يا أُولِي اَلْأَبْصٰار﴾».
                 </p>
-                <p><strong>المصدر:</strong> الكافي الشريف | الجزء : الأول | الصفحة : 41 الراوي : عبد الله بن سنان | صحة الحديث : صحيح.</p>
-            </div>
-            <div class="hadith">
-                <p><strong>الحديث 3:</strong> 
-                    قُلْتُ لِأَبِي الحَسَنِ (عَلَيْهِ اَلسَّلاَم) إِنَّ عِنْدَنَا قَوْمًا لَهُمْ مَحَبَّةٌ ولَيْسَتْ لَهُمْ تِلْكَ العزيمة يَقُولُون بِهَذَا القول ، فَقَالَ «ليسَ أُولَئِكَ مِمَنْ عَاتَبَ الله إِنَّمَا قَالَ الله ﴿فَاعْتَبِرُوا يا أُولِي اَلْأَبْصٰار﴾».
-                </p>
+
                 <p><strong>المصدر:</strong> الكافي الشريف | الجزء : 1 | الصفحة : 11 | الراوي : الحسن بن الجهم | صحة الحديث : موثق ولا يقصر عن الصحيح.</p>
             </div>
 
-            <a href="javascript:void(0)" class="button-back" onclick="hideContent()">الرجوع إلى الصفحة الرئيسية</a>
+            <div class="hadith">
+                <p><strong>الحديث 3:</strong> 
+                    عَنْ أَبِي جَعْفَرٍ (عَلَيْهِ السَّلَام) قَالَ : «لَمَّا خَلَقَ الله العَقْلَ اسْتَنْطَقَهُ ثُمَّ قَالَ لَهُ : أَقْبِلْ فَأَقْبَلَ ، ثُمَّ قَالَ لَهُ : أَدْبِرْ فَأَدْبَرَ ، ثُمَّ قَالَ : وَعِزَّتِي وَجَلاَلِي مَا خَلَقْتُ خَلْقًا هُوَ أَحَبُّ إِلَيَّ مِنْكَ وَلاَ أَكْمَلْتُكَ إِلَّا فِيمَنْ أُحِبُّ ، أَمَا إِنِّي إِيَّاكَ آمُرُ وَإِيَّاكَ أَنْهَى وَإِيَّاكَ أُعَاقِبُ وَإِيَّاكَ أُثِيبُ».
+                </p>
+                
+                <p><strong>المصدر:</strong> الكافي الشريف | الجزء : 1 | الصفحة : 11 | الراوي : محمد بن مسلم | صحة الحديث : الصحيح.</p>
+            </div>
+
+
+            <div class="hadith">
+                <div class="hadith">
+                    <p><strong>الحديث 4:</strong> 
+                         عَنْ أَبِي عَبْدِ اللَّهِ (عَلَيْهِ السَّلاَم) قَالَ : قَالَ رَسُولُ اللَّهِ ﷺ : «إِذَا بَلَغَكُمْ عَنْ رَجُلٍ حُسْنُ حَالٍ فَانْظُرُوا فِي حُسْنِ عَقْلِهِ فَإِنَّمَا يُجَازَى بِعَقْلِهِ».
+                    </p>
+                    
+                    <p><strong>المصدر:</strong> الكافي الشريف | الجزء : 1 | الصفحة : 12 | الراوي : السكوني | صحة الحديث : صحيح.</p>
+                </div>
+                
+
+
+                <div class="hadith">
+                    <p><strong>الحديث 5:</strong> 
+                        عَنْ عَبْدِ الله بنِ سِنَانٍ قَالَ : ذَكَرْتُ لِأَبِي عَبْدِ اللَّهِ (عَلَيْهِ السَّلَام) رَجُلاً مُبْتَلًى بِالْوُضُوءِ وَالصَّلاَةِ وَقُلْتُ هُوَ رَجُلٌ عَاقِلٌ ، فَقَالَ أَبُو عَبْدِ اللَّهِ «وَأَيُّ عَقْلٍ لَهُ وَهُوَ يُطِيعُ الشَّيْطَان!؟» فَقُلْتُ لَهُ وَكَيْفَ يُطِيعُ الشَّيْطَانَ؟ فَقَالَ «سَلْهُ هَذَا الَّذِي يَأْتِيهِ مِنْ أَيِّ شَيْءٍ هُوَ فَإِنَّهُ يَقُولُ لَكَ مِنْ عَمَلِ الشَّيْطَانِ».
+                    </p>    
+                    <p><strong>المصدر:</strong> الكافي الشريف | الجزء : 1 | الصفحة : 12 | الراوي : عبد الله بن سنان | صحة الحديث : صحيح.</p>
+                </div>
+
+
+            <a href="javascript:void(0)" class="button-back" onclick="hideContent()">
+                <i class="fas fa-arrow-right"></i>
+                الرجوع إلى الصفحة الرئيسية
+            </a>
         </div>
 
         <div id="daifContent" class="content">
             <h2>الأحاديث الضعيفة</h2>
             <div class="hadith">
                 <p><strong>الحديث 1:</strong> 
-                    أَبِي عَبْدِ الله (عَلَيْهِ اَلسَّلاَم) قَالَ : قُلْتُ لَهُ مَا العقل!؟ قَالَ «مَا عُبِدَ بِهِ الرحمن واكتسب بِهِ الجنان» ، قَالَ : قُلْتُ فَالَّذِي كَانَ فِي مُعَاوِيَةَ!؟ فَقَالَ «تِلْكَ النكراء تِلْكَ الشيطنة وهي شَبِيهَةٌ بالعقل وَليست بالعقل».
+                    أَبِي عَبْدِ الله (عَلَيْهِ اَلسَّلاَم) قَالَ : قُلْتُ لَهُ مَا العقل!؟ قَالَ «مَا عُبِدَ بِهِ الرحمن واكتسب بِهِ الجنان» ، قَالَ : قُلْتُ فَالَّذِي كَانَ فِي مُعَاوِيَةَ!؟ فَقَالَ «تِلْكَ النكراء تِلْكَ الشيطنة وهي شَبِيهَةٌ بالعقل وَليست بالعقل».
                 </p>
                 <p><strong>المصدر:</strong> الكافي الشريف | الجزء : الأول | الصفحة : 11 الراوي : مجهول | صحة الحديث : مرسل.</p>
             </div>
             <div class="hadith">
                 <p><strong>الحديث 2:</strong> 
                     عن أبي عبد الله الصادق (عليه السلام) : 
-                    «مَنْ كَانَ عَاقِلاً كَانَ لَهُ دِينٌ ومَنْ كَانَ لَهُ دِينٌ دَخَلَ الجَنَّةَ»
+                    «مَنْ كَانَ عَاقِلاً كَانَ لَهُ دِينٌ ومَنْ كَانَ لَهُ دِينٌ دَخَلَ الجَنَّةَ»
                 </p>
                 <p><strong>المصدر:</strong> الكافي الشريف | الجزء : 1 | الصفحة : 11 | الراوي : إسحاق بن عمار | صحة الحديث : ضعيف.</p>
             </div>
-            <a href="javascript:void(0)" class="button-back" onclick="hideContent()">الرجوع إلى الصفحة الرئيسية</a>
+
+
+            <div class="hadith">
+                <p><strong>الحديث 3:</strong> 
+                    عَنْ الأَصْبَغِ بْنِ نُبَاتَةَ عَنْ عَلِيٍّ (عَلَيْهِ السَّلَامُ) قَالَ: «هَبَطَ جَبْرَئِيلُ عَلَى آدَمَ (عَلَيْهِ السَّلَامُ) فَقَالَ: يَا آدَمُ إِنِّي أُمِرْتُ أَنْ أُخَيِّرَكَ وَاحِدَةً مِنْ ثَلاثٍ فَاخْتَرْهَا وَدَعِ اثْنَتَيْنِ. فَقَالَ لَهُ آدَمُ: يَا جَبْرَئِيلُ وَمَا الثَّلاثُ؟ فَقَالَ: العَقْلُ وَالحَيَاءُ وَالدِّينُ. فَقَالَ آدَمُ: إِنِّي قَدِ اخْتَرْتُ العَقْلَ. فَقَالَ جَبْرَئِيلُ لِلْحَيَاءِ وَالدِّينِ: انصَرِفَا وَدَعَاهُ. فَقَالا: يَا جَبْرَئِيلُ إِنَّا أُمِرْنَا أَنْ نَكُونَ مَعَ العَقْلِ حَيْثُ كَانَ. قَالَ: فَشَأْنُكُمَا وَعَرَجَ».
+                </p>
+                
+                <p><strong>المصدر:</strong> الكافي الشريف | الجزء : 1 | الصفحة : 14 | الراوي : الأصبغ بن نباتة | صحة الحديث : صحيح.</p>
+            </div>
+            
+
+            <a href="javascript:void(0)" class="button-back" onclick="hideContent()">
+                <i class="fas fa-arrow-right"></i>
+                الرجوع إلى الصفحة الرئيسية
+            </a>
         </div>
     </div>
 
-    <script>
-        function showContent(contentId) {
-            const contents = document.querySelectorAll('.content');
-            contents.forEach(function(content) {
-                content.style.display = 'none';
-            });
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+    </button>
 
-            const contentToShow = document.getElementById(contentId);
-            if (contentToShow) {
-                contentToShow.style.display = 'block';
+    <div class="loading" id="loading"></div>
+
+    <script>
+        let isDarkMode = true;
+
+        function toggleTheme() {
+            isDarkMode = !isDarkMode;
+            const root = document.documentElement;
+            
+            if (isDarkMode) {
+                root.style.setProperty('--primary-color', '#1a2a33');
+                root.style.setProperty('--secondary-color', '#2c3e50');
+                root.style.setProperty('--text-color', '#fff');
+            } else {
+                root.style.setProperty('--primary-color', '#f5f5f5');
+                root.style.setProperty('--secondary-color', '#e0e0e0');
+                root.style.setProperty('--text-color', '#333');
             }
+            
+            document.querySelector('.theme-toggle i').className = isDarkMode ? 'fas fa-moon' : 'fas fa-sun';
+        }
+
+        function showContent(contentId) {
+            const loading = document.getElementById('loading');
+            loading.style.display = 'block';
+
+            setTimeout(() => {
+                const contents = document.querySelectorAll('.content');
+                contents.forEach(content => {
+                    content.style.display = 'none';
+                });
+
+                const contentToShow = document.getElementById(contentId);
+                if (contentToShow) {
+                    contentToShow.style.display = 'block';
+                    contentToShow.scrollIntoView({ behavior: 'smooth' });
+                }
+
+                loading.style.display = 'none';
+            }, 500);
         }
 
         function hideContent() {
-            const contents = document.querySelectorAll('.content');
-            contents.forEach(function(content) {
-                content.style.display = 'none';
-            });
-        }
+            const loading = document.getElementById('loading');
+            loading.style.display = 'block';
 
-        function toggleSearch() {
-            const searchInput = document.getElementById('searchInput');
-            if (searchInput.style.display === 'none' || searchInput.style.display === '') {
-                searchInput.style.display = 'inline-block';
-            } else {
-                searchInput.style.display = 'none';
-            }
+            setTimeout(() => {
+                const contents = document.querySelectorAll('.content');
+                contents.forEach(content => {
+                    content.style.display = 'none';
+                });
+                
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                loading.style.display = 'none';
+            }, 500);
         }
 
         function searchHadith() {
             const query = document.getElementById('searchInput').value.toLowerCase();
             const hadiths = document.querySelectorAll('.hadith');
-            hadiths.forEach(function(hadith) {
+            let found = false;
+
+            hadiths.forEach(hadith => {
                 const text = hadith.innerText.toLowerCase();
                 if (text.includes(query)) {
                     hadith.style.display = 'block';
+                    found = true;
                 } else {
                     hadith.style.display = 'none';
                 }
             });
+
+            // Show all hadiths if search is empty
+            if (query === '') {
+                hadiths.forEach(hadith => {
+                    hadith.style.display = 'block';
+                });
+            }
+
+            // Show contents when searching
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => {
+                if (content.querySelector('.hadith')) {
+                    content.style.display = 'block';
+                }
+            });
         }
+
+        // Add smooth scrolling for all internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
-
-            </html>
+</html>
+     
